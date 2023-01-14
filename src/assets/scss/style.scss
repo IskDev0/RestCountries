@@ -5,6 +5,7 @@
 @import "search";
 @import "countries";
 @import "details";
+@import "select";
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -22,5 +23,8 @@ body {
   padding: 0 30px;
 }
 .main__top {
-  margin-top: 50px;
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

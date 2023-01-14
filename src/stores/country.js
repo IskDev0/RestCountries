@@ -17,6 +17,21 @@ export const useCountryStore = defineStore('country', () => {
         countries.value = await response.json()
     }
 
+    let options = ref(["Africa", "America", "Asia", "Europe", "Oceania"])
 
-    return {searchByName, loadCountries, countries, search}
+    let selected = ref("Filter by Region")
+
+    let isVisible = ref(false)
+
+    let changeVisibility = () => {
+        isVisible.value = !isVisible.value
+    }
+
+    let selectOption = (option) => {
+        selected.value = option
+        isVisible.value = false
+    }
+
+
+    return {searchByName, loadCountries, countries, search, selected, options, selectOption, isVisible, changeVisibility}
 })

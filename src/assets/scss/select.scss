@@ -1,0 +1,45 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background: $elementsBlack;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 100;
+  bottom: -10px;
+}
+.options{
+  display: flex;
+  flex-direction: column;
+  background: $elementsBlack;
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  width: 200px;
+  margin-top: 10px;
+}
+.option {
+  padding: 10px 0;
+  cursor: pointer;
+  &:hover {
+    background: $backgroundBlack;
+  }
+}
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+  width: 200px;
+  svg {
+    transition: 0.3s ease;
+  }
+}
+.active {
+  transform: rotate(180deg);
+}

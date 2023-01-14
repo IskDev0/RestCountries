@@ -6,15 +6,32 @@ export const useCountryStore = defineStore('country', () => {
 
     let countries = ref([])
 
+    let isLoading = ref(false)
+
     let searchByName = async () => {
-        let response = await fetch(`https://restcountries.com/v3.1/name/${search.value}`)
-        countries.value = await response.json()
-        search.value = ""
+        try {
+            isLoading.value = true
+            let response = await fetch(`https://restcountries.com/v3.1/name/${search.value}`)
+            countries.value = await response.json()
+            search.value = ""
+        }catch (err){
+
+        }finally {
+            isLoading.value = false
+        }
     }
 
     let loadCountries = async () => {
-        let response = await fetch("https://restcountries.com/v3.1/all")
-        countries.value = await response.json()
+        try {
+            isLoading.value = true
+            let response = await fetch("https://restcountries.com/v3.1/all")
+            countries.value = await response.json()
+        }catch (err){
+
+        }finally {
+            isLoading.value = false
+        }
+
     }
 
     let options = ref(["Africa", "America", "Asia", "Europe", "Oceania"])
@@ -31,8 +48,26 @@ export const useCountryStore = defineStore('country', () => {
     let selectOption = async (option) => {
         selected.value = option
         isVisible.value = false
-        let response = await fetch(`https://restcountries.com/v3.1/region/${selected.value}`)
-        countries.value = await response.json()
+
+        try {
+            isLoading.value = true
+            let response = await fetch(`https://restcountries.com/v3.1/region/${selected.value}`)
+            countries.value = await response.json()
+        }catch (err){
+
+        }
+        finally {
+            isLoading.value = false
+        }
+
+    }
+
+    let loadingTrue = () => {
+        isLoading.value = true
+    }
+
+    let loadingFalse = () => {
+        isLoading.value = false
     }
 
 
@@ -45,6 +80,9 @@ export const useCountryStore = defineStore('country', () => {
         options,
         selectOption,
         isVisible,
-        changeVisibility
+        changeVisibility,
+        isLoading,
+        loadingTrue,
+        loadingFalse
     }
 })

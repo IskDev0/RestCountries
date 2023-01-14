@@ -1,5 +1,5 @@
 <template>
-  <div @click="$router.push(`country/${country.name.official}`)" class="country">
+  <div  v-if="!countryStore.isLoading" @click="$router.push(`country/${country.name.official}`)" class="country">
     <img class="country__image" :src="data.flags.svg" alt="">
     <div class="country__text">
       <p class="country__name">{{ data.name.common }}</p>
@@ -12,6 +12,11 @@
 
 <script setup>
 import {computed} from "vue";
+import TheLoader from "./TheLoader.vue";
+
+import {useCountryStore} from "../stores/country";
+
+let countryStore = useCountryStore()
 
 let props = defineProps({
   country: {

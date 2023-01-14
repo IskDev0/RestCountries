@@ -46,6 +46,7 @@
           </div>
         </div>
       </div>
+      <TheLoader v-if="countryStore.isLoading" />
     </div>
   </div>
 </template>
@@ -53,7 +54,12 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 
+import {useCountryStore} from "../stores/country";
+
+let countryStore = useCountryStore()
+
 import {useRoute} from "vue-router";
+import TheLoader from "./TheLoader.vue";
 
 const route = useRoute()
 
@@ -65,8 +71,16 @@ let countryData = ref([])
 
 
 let getCurrentCountry = onMounted(async () => {
-  let response = await fetch(`https://restcountries.com/v3.1/name/${countryName.value}?fullText=true`)
-  countryData.value = await response.json()
+  try {
+    countryStore.loadingTrue()
+    let response = await fetch(`https://restcountries.com/v3.1/name/${countryName.value}?fullText=true`)
+    countryData.value = await response.json()
+  }catch (err){
+
+  }
+  finally {
+    countryStore.loadingFalse()
+  }
 })
 
 

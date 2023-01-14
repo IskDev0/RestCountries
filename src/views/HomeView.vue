@@ -1,7 +1,13 @@
 <script setup>
 import TheSearch from "../components/TheSearch.vue";
 import CountriesList from "../components/CountriesList.vue";
-import TheSelect from "../components/TheSelect.vue";</script>
+import TheSelect from "../components/TheSelect.vue";
+
+import {useCountryStore} from "../stores/country";
+
+let countryStore = useCountryStore()
+
+</script>
 
 <template>
   <div class="container">
@@ -9,6 +15,7 @@ import TheSelect from "../components/TheSelect.vue";</script>
       <TheSearch/>
       <TheSelect/>
     </div>
+    <TheLoader v-if="countryStore.isLoading" />
     <CountriesList/>
   </div>
 </template>

@@ -2,6 +2,7 @@
 @import "fonts";
 @import "vars";
 @import "header";
+@import "search";
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -17,4 +18,7 @@ body {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 30px;
+}
+.main__top {
+  margin-top: 50px;
 }

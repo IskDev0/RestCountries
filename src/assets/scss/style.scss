@@ -1,0 +1,20 @@
+@import "normalize";
+@import "fonts";
+@import "vars";
+@import "header";
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  background: $backgroundBlack;
+  color: $white;
+}
+
+.container  {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 30px;
+}

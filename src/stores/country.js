@@ -9,6 +9,7 @@ export const useCountryStore = defineStore('country', () => {
     let searchByName = async () => {
         let response = await fetch(`https://restcountries.com/v3.1/name/${search.value}`)
         countries.value = await response.json()
+        search.value = ""
     }
 
     let loadCountries = async () => {

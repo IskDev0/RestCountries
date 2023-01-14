@@ -1,5 +1,5 @@
 <template>
-  <div class="country">
+  <div @click="$router.push(`country/${country.name.official}`)" class="country">
     <img class="country__image" :src="data.flags.svg" alt="">
     <div class="country__text">
       <p class="country__name">{{ data.name.common }}</p>

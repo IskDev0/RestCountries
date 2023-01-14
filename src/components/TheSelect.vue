@@ -5,7 +5,7 @@
   </svg>
   </p>
   <div v-if="countryStore.isVisible" class="options">
-      <p class="option" v-for="option in countryStore.options" @click="countryStore.selectOption(option)">{{option}}</p>
+      <p @change="countryStore.searchByRegion" class="option" v-for="option in countryStore.options" @click="countryStore.selectOption(option)">{{option}}</p>
   </div>
 </div>
 </template>
@@ -15,4 +15,8 @@ import {ref} from "vue";
 import {useCountryStore} from "../stores/country";
 
 let countryStore = useCountryStore()
+
+let a = () => {
+  console.log("sdofsdiopjf")
+}
 </script>

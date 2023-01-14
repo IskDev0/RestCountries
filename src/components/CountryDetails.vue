@@ -24,7 +24,9 @@
             <p class="details__text"><span class="details__text-title"> Native name:</span>
               {{ Object.values(country.name.nativeName)[0].official }}</p>
             <p class="details__text"><span
-                class="details__text-title"> Population: </span>{{ country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
+                class="details__text-title"> Population: </span>{{
+                country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }}
             </p>
             <p class="details__text"><span class="details__text-title"> Region: </span>{{ country.region }}</p>
             <p class="details__text"><span class="details__text-title"> Subregion: </span>{{ country.subregion }}</p>
@@ -32,7 +34,9 @@
             </p>
             <p class="details__text"><span class="details__text-title"> Top Level </span>Domain:
               {{ country.tld.join(", ") }}</p>
-            <p class="details__text" v-for="currency in Object.values(country.currencies)"><span class="details__text"> Currencies: </span>{{ currency.name }}
+            <p class="details__text" v-for="currency in Object.values(country.currencies)"><span class="details__text"> Currencies: </span>{{
+                currency.name
+              }}
               ({{ currency.symbol }})</p>
             <p class="details__text"><span
                 class="details__text-title"> Languages: </span>{{ Object.values(country.languages).join(', ') }}</p>
@@ -63,7 +67,6 @@ let countryData = ref([])
 let getCurrentCountry = onMounted(async () => {
   let response = await fetch(`https://restcountries.com/v3.1/name/${countryName.value}?fullText=true`)
   countryData.value = await response.json()
-  console.log(countryData.value)
 })
 
 

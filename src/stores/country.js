@@ -23,15 +23,28 @@ export const useCountryStore = defineStore('country', () => {
 
     let isVisible = ref(false)
 
-    let changeVisibility = () => {
+    let changeVisibility = async () => {
         isVisible.value = !isVisible.value
     }
 
-    let selectOption = (option) => {
+
+    let selectOption = async (option) => {
         selected.value = option
         isVisible.value = false
+        let response = await fetch(`https://restcountries.com/v3.1/region/${selected.value}`)
+        countries.value = await response.json()
     }
 
 
-    return {searchByName, loadCountries, countries, search, selected, options, selectOption, isVisible, changeVisibility}
+    return {
+        searchByName,
+        loadCountries,
+        countries,
+        search,
+        selected,
+        options,
+        selectOption,
+        isVisible,
+        changeVisibility
+    }
 })

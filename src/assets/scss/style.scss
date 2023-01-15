@@ -17,14 +17,17 @@ body {
   color: $white;
 }
 
-.container  {
+.container {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 30px;
 }
+
 .main__top {
   margin: 50px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+@import "response";

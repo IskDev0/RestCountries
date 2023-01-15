@@ -1,4 +1,4 @@
-.search{
+.search {
   &__input {
     background-color: $elementsBlack;
     padding: 20px 35px;
@@ -10,9 +10,12 @@
     background-size: auto;
     background-position: 5px center;
     background-repeat: no-repeat;
+    font-size: 18px;
+
     &::placeholder {
       color: $white;
     }
+
     &:focus {
       outline: none;
     }

@@ -4,6 +4,8 @@
   gap: 30px;
 }
 .country{
+  display: flex;
+  flex-direction: column;
   background: $elementsBlack;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

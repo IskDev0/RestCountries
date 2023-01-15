@@ -2,6 +2,7 @@
 import TheSearch from "../components/TheSearch.vue";
 import CountriesList from "../components/CountriesList.vue";
 import TheSelect from "../components/TheSelect.vue";
+import TheLoader from "../components/TheLoader.vue"
 
 import {useCountryStore} from "../stores/country";
 

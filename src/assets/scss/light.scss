@@ -9,6 +9,7 @@ body.light {
   }
   .search__input {
     background: $white;
+    color: $inputColorWhite;
     &::placeholder{
       color: $inputColorWhite;
     }

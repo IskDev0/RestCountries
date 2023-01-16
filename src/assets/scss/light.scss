@@ -50,4 +50,7 @@ body.light {
       fill: $elementsBlack;
     }
   }
+  .lds-ring div{
+    border-color: $elementsBlack transparent transparent transparent;
+  }
 }

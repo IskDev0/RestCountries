@@ -54,4 +54,7 @@ body.light {
   .lds-ring div{
     border-color: $elementsBlack transparent transparent transparent;
   }
+  .modal__content {
+    background: $backgroundWhite;
+  }
 }

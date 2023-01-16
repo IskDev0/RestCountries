@@ -1,0 +1,53 @@
+body.light {
+  background: $backgroundWhite;
+  color: $textColorWhite;
+  .header {
+    background: $backgroundWhite;
+  }
+  .country {
+    background: $white;
+  }
+  .search__input {
+    background: $white;
+    &::placeholder{
+      color: $inputColorWhite;
+    }
+  }
+  .select {
+    background: $white;
+  }
+  .options {
+    background: $white;
+  }
+  .option {
+    &:hover {
+      background: $backgroundWhite;
+    }
+  }
+  .backBtn {
+    background: $backgroundWhite;
+    svg path {
+      fill: $elementsBlack
+    }
+  }
+
+  .border__item {
+    background: $white;
+  }
+  .theme-btn {
+    svg path {
+      fill: $elementsBlack;
+    }
+  }
+  .search__input {
+    background-image: url('../search-dark.svg');
+    background-size: auto;
+    background-position: 5px center;
+    background-repeat: no-repeat;
+  }
+  .selected {
+    svg path {
+      fill: $elementsBlack;
+    }
+  }
+}

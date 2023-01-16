@@ -1,6 +1,6 @@
 <template>
   <section class="countries">
-    <CountriesItem :country="country" v-for="country in countryStore.countries"/>
+    <CountriesItem v-if="!countryStore.error" :country="country" v-for="country in countryStore.countries"/>
   </section>
 </template>
 

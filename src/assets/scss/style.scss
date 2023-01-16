@@ -6,6 +6,7 @@
 @import "countries";
 @import "details";
 @import "select";
+@import "modal";
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -23,12 +24,15 @@ body {
   padding: 0 30px;
 }
 
-.main__top {
-  margin: 50px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.main {
+  margin-bottom: 50px;
+  &__top {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
-@import "response";
-@import "light";
+  @import "response";
+  @import "light";

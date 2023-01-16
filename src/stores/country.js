@@ -8,14 +8,22 @@ export const useCountryStore = defineStore('country', () => {
 
     let isLoading = ref(false)
 
+    let error = ref(false)
+
     let searchByName = async () => {
         try {
             isLoading.value = true
+            error.value = false
             let response = await fetch(`https://restcountries.com/v3.1/name/${search.value}`)
-            countries.value = await response.json()
+            if (response.status !== 404){
+                countries.value = await response.json()
+            }else {
+                error.value = true
+                countries.value = []
+            }
             search.value = ""
         }catch (err){
-
+            error.value = true
         }finally {
             isLoading.value = false
         }
@@ -70,6 +78,10 @@ export const useCountryStore = defineStore('country', () => {
         isLoading.value = false
     }
 
+    let closeModal = () => {
+        error.value = false
+    }
+
 
     return {
         searchByName,
@@ -83,6 +95,8 @@ export const useCountryStore = defineStore('country', () => {
         changeVisibility,
         isLoading,
         loadingTrue,
-        loadingFalse
+        loadingFalse,
+        error,
+        closeModal
     }
 })

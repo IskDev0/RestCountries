@@ -41,7 +41,7 @@
             <p class="details__text"><span
                 class="details__text-title"> Languages: </span>{{ Object.values(country.languages).join(', ') }}</p>
           </div>
-          <div class="details__text borders"><span class="details__text-title">Border countries: </span>
+          <div v-if="country.borders" class="details__text borders"><span class="details__text-title">Border countries: </span>
             <div class="border"><span v-for="border in country.borders" class="border__item">{{ border }}</span></div>
           </div>
         </div>

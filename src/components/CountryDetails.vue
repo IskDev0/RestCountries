@@ -34,7 +34,7 @@
             </p>
             <p class="details__text"><span class="details__text-title"> Top Level </span>Domain:
               {{ country.tld.join(", ") }}</p>
-            <p class="details__text" v-for="currency in Object.values(country.currencies)"><span class="details__text"> Currencies: </span>{{
+            <p class="details__text" v-for="currency in Object.values(country.currencies)"><span class="details__text-title"> Currencies: </span>{{
                 currency.name
               }}
               ({{ currency.symbol }})</p>
